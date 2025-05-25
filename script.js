@@ -57,17 +57,62 @@ const loseSound = document.getElementById("loseSound");
 const guessInput = document.getElementById("guess");
 const categorySelect = document.getElementById("category");
 
+function saveGameState() {
+  set("currentWord", word);
+  set("guessedLetters", guessed);
+  set("attemptsLeft", attempts);
+}
+
+function loadGameState() {
+  const savedWord = get("currentWord", null);
+  if (!savedWord) return false;
+
+  const savedGuessed = get("guessedLetters", []);
+  const savedAttempts = get("attemptsLeft", 6);
+
+  word = savedWord;
+  guessed = savedGuessed;
+  attempts = savedAttempts;
+
+  return true;
+}
+
+function clearGameState() {
+  remove("currentWord");
+  remove("guessedLetters");
+  remove("attemptsLeft");
+}
+
 function initGame() {
   const selectedCategory = categorySelect.value;
+
+  const savedCategory = get("lastCategory", null);
+  const isSameCategory = savedCategory === selectedCategory;
+
+  const message = document.getElementById("message").textContent.toLowerCase();
+  if (isSameCategory && !message.includes("win") && !message.includes("lost")) {
+    const loaded = loadGameState();
+    if (loaded) {
+      updateDisplay();
+      resetHangman();
+      for (let i = 7 - attempts; i > 0; i--) {
+        drawHangman(i);
+      }
+      guessInput.focus();
+      return;
+    }
+  }
+
   const words = categories[selectedCategory];
   word = words[Math.floor(Math.random() * words.length)];
   guessed = [];
   attempts = 6;
-
   updateDisplay();
   resetHangman();
   document.getElementById("message").textContent = "";
   guessInput.focus();
+
+  clearGameState();
 }
 
 function updateDisplay() {
@@ -164,6 +209,14 @@ function makeGuess() {
 
   updateDisplay();
   checkGameStatus();
+
+  // Save or clear game state based on game status
+  const currentMessage = document.getElementById("message").textContent.toLowerCase();
+  if (!currentMessage.includes("win") && !currentMessage.includes("lost")) {
+    saveGameState();
+  } else {
+    clearGameState();
+  }
 }
 
 function saveScore() {
@@ -173,7 +226,7 @@ function saveScore() {
   let scores = get("scores", []);
   scores.push({ name, score, time: Date.now() });
 
-  scores.sort((a, b) => b.score - a.score || b.time - a.time);
+  scores.sort((a, b) => b.score - a.score || a.time - b.time);
   scores = scores.slice(0, 10);
 
   set("scores", scores);
