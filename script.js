@@ -8,8 +8,9 @@ let word = "";
 let guessed = [];
 let attempts = 6;
 
-const get = (k, d) => JSON.parse(localStorage.getItem(`numbers-${k}`)) ?? d;
-const set = (k, v) => localStorage.setItem(`numbers-${k}`, JSON.stringify(v));
+const get = (k, d) => JSON.parse(localStorage.getItem(`hangman-${k}`)) ?? d;
+const set = (k, v) => localStorage.setItem(`hangman-${k}`, JSON.stringify(v));
+const remove = (k) => localStorage.removeItem(`hangman-${k}`);
 
 const correctSound = document.getElementById("correctSound");
 const wrongSound = document.getElementById("wrongSound");
