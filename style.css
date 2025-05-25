@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 body {
   width: 60%;
   padding: 20px;
@@ -13,7 +12,6 @@ body {
   background-color: var(--bg);
   transition: background-color 0.3s, color 0.3s;
 }
-
 :root {
   --bg: #ffffff;
   --text: #222222;
@@ -23,7 +21,6 @@ body {
   --right: #22cc88;
   --btn-shadow: rgba(0, 87, 204, 0.3);
 }
-
 body.dark {
   --bg: #1e1e2f;
   --text: #e0e0e0;
@@ -33,7 +30,6 @@ body.dark {
   --right: #66ffbb;
   --btn-shadow: rgba(51, 102, 204, 0.4);
 }
-
 .container {
   max-width: 700px;
   margin: auto;
@@ -42,12 +38,6 @@ body.dark {
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
 select, input[type="text"] {
   padding: 10px;
   width: 100%;
@@ -57,13 +47,11 @@ select, input[type="text"] {
   font-size: 1rem;
   transition: border-color 0.3s;
 }
-
 select:focus, input[type="text"]:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 6px var(--btn-shadow);
 }
-
 #hangmanCanvas {
   background: #f5f5f5;
   width: 100%;
@@ -73,14 +61,84 @@ select:focus, input[type="text"]:focus {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
+#hangman {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin: 20px auto;
+  border-left: 4px solid #333;
+  border-bottom: 4px solid #333;
+}
+.stand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background-color: #333;
+}
+.rope {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 2px;
+  height: 30px;
+  background-color: #333;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.head {
+  position: absolute;
+  top: 30px;
+  left: 85px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.body {
+  position: absolute;
+  top: 60px;
+  left: 98px;
+  width: 4px;
+  height: 50px;
+  background-color: #333;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.arms {
+  position: absolute;
+  top: 70px;
+  left: 98px;
+  width: 60px;
+  height: 4px;
+  background-color: #333;
+  transform: translateX(-50%) rotate(45deg);
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.legs {
+  position: absolute;
+  top: 110px;
+  left: 98px;
+  width: 60px;
+  height: 4px;
+  background-color: #333;
+  transform: translateX(-50%) rotate(-45deg);
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 #wordDisplay {
   text-align: center;
   font-size: 2rem;
   letter-spacing: 10px;
   margin: 20px 0;
 }
-
 #guessInput {
   text-align: center;
   font-size: 1.5rem;
@@ -92,13 +150,11 @@ select:focus, input[type="text"]:focus {
   border: 1px solid #ccc;
   transition: border-color 0.3s;
 }
-
 #guessInput:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 6px var(--btn-shadow);
 }
-
 button, #submitGuess, #themeToggle {
   display: inline-block;
   font-weight: 600;
@@ -118,73 +174,60 @@ button, #submitGuess, #themeToggle {
   min-width: 110px;
   letter-spacing: 0.04em;
 }
-
 #submitGuess {
   display: block;
   margin: 10px auto;
   width: 130px;
 }
-
 #themeToggle {
   display: block;
   width: 140px;
   margin: 20px auto 10px;
 }
-
-/* Hover & active effects */
 button:hover, #submitGuess:hover, #themeToggle:hover {
   background-color: var(--accent-hover);
   box-shadow: 0 5px 10px var(--btn-shadow);
   transform: translateY(-1.5px);
 }
-
 button:active, #submitGuess:active, #themeToggle:active {
   transform: translateY(0);
   box-shadow: 0 2px 5px var(--btn-shadow);
 }
-
 button:disabled, #submitGuess:disabled, #themeToggle:disabled {
   background-color: #666;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
 }
-
 #wrongLetters {
   text-align: center;
   margin: 10px 0;
   color: var(--wrong);
   font-weight: bold;
 }
-
 #message {
   text-align: center;
   font-size: 1.2rem;
   margin: 10px 0;
   padding: 10px;
 }
-
 #scoreboard {
   margin-top: 20px;
 }
-
 #scoreboard h2 {
   text-align: center;
   margin-bottom: 10px;
 }
-
 #topScores {
   list-style: none;
   padding: 0;
   max-height: 200px;
   overflow-y: auto;
 }
-
 #topScores li {
   padding: 5px 10px;
   border-bottom: 1px solid #ccc;
 }
-
 #playerNameDisplay {
   text-align: center;
   margin: 10px 0;
