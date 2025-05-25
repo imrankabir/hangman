@@ -1,0 +1,68 @@
+body {
+  display: flex;
+  height: 100vh;
+  background: #f0f8ff;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+.game-container {
+  padding: 30px;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+#hangman {
+  width: 100px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+}
+.stand, .rope, .head, .body, .arms, .legs {
+  opacity: 0;
+  background: black;
+  position: absolute;
+  transition: opacity 0.5s ease-in;
+}
+.stand {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  height: 10px;
+  width: 100px;
+}
+.rope {
+  top: 10px;
+  width: 2px;
+  left: 50px;
+  height: 30px;
+}
+.head {
+  top: 40px;
+  left: 35px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+.body {
+  top: 70px;
+  width: 2px;
+  left: 50px;
+  height: 50px;
+}
+.arms {
+  top: 90px;
+  left: 20px;
+  width: 60px;
+  height: 2px;
+}
+.legs {
+  left: 20px;
+  top: 120px;
+  width: 60px;
+  height: 2px;
+  transform: rotate(45deg);
+}

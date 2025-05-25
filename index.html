@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Hangman Game</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+    <div class="game-container">
+        <label for="category">Choose Category:</label>
+        <select id="category">
+          <option value="fruits">Fruits</option>
+          <option value="animals">Animals</option>
+          <option value="countries">Countries</option>
+        </select>
+
+        <div id="hangman">
+          <div class="stand"></div>
+          <div class="rope"></div>
+          <div class="head"></div>
+          <div class="body"></div>
+          <div class="arms"></div>
+          <div class="legs"></div>
+        </div>
+
+        <p id="wordDisplay">_ _ _ _</p>
+        
+        <input type="text" id="guessInput" maxlength="1" placeholder="Enter a letter" />
+        <button onclick="makeGuess()">Guess</button>
+        
+        <p>Guessed Letters: <span id="guessedLetters"></span></p>
+        <p>Remaining Attempts: <span id="attempts">6</span></p>
+        <p id="message"></p>
+        <button onclick="initGame()">Restart</button>
+      </div>
+    <script src="script.js?v=1"></script>
+</body>
+</html>
