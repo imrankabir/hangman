@@ -9,6 +9,11 @@
 </head>
 <body>
     <div class="game-container">
+        <header>
+          <h3>🎯 Hangman Game</h3>
+          <button id="toggleTheme">🌙 Dark Mode</button>
+        </header>
+
         <label for="category">Choose Category:</label>
         <select id="category">
           <option value="fruits">Fruits</option>
@@ -26,15 +31,20 @@
         </div>
 
         <p id="wordDisplay">_ _ _ _</p>
-        
+
         <input type="text" id="guessInput" maxlength="1" placeholder="Enter a letter" />
         <button onclick="makeGuess()">Guess</button>
-        
+
         <p>Guessed Letters: <span id="guessedLetters"></span></p>
         <p>Remaining Attempts: <span id="attempts">6</span></p>
         <p id="message"></p>
         <button onclick="initGame()">Restart</button>
       </div>
+
+      <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
+      <audio id="wrongSound" src="sounds/wrong.mp3" preload="auto"></audio>
+      <audio id="winSound" src="sounds/win.mp3" preload="auto"></audio>
+      <audio id="loseSound" src="sounds/lose.mp3" preload="auto"></audio>
     <script src="script.js?v=1"></script>
 </body>
 </html>
