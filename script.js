@@ -1,5 +1,5 @@
 const categories = {
-  fruits: ["apple", "banana", "cherry", "grape", "orange", "mango", "pineapple", "strawberry", "watermelon", "kiwi", "blueberry", "peach", "pear", "plum", "pomegranate"],
+  fruits: ["apple", "banana", "cherry", "grapes", "orange", "mango", "pineapple", "strawberry", "watermelon", "kiwi", "blueberry", "peach", "pear", "plum", "pomegranate"],
   animals: ["tiger", "elephant", "giraffe", "rabbit", "zebra", "lion", "kangaroo", "dolphin", "penguin", "wolf", "bear", "fox", "horse", "camel", "monkey"],
   countries: [ "canada", "brazil", "germany", "nepal", "japan", "india", "france", "italy", "mexico", "egypt", "china", "spain", "argentina", "russia", "turkey"],
   colors: [ "red", "blue", "green", "yellow", "purple", "orange", "pink", "black", "white", "brown", "violet", "indigo", "cyan", "magenta", "turquoise"],

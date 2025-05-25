@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
   <title>Hangman Game</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="game-container">
@@ -27,13 +27,16 @@
 
     <p id="wordDisplay">_ _ _ _</p>
 
-    <input type="text" id="guess" maxlength="1" autofocus placeholder="Enter a letter" />
-    <button onclick="makeGuess()">Guess</button>
-
+    <div class="input-wrapper">
+        <input type="text" id="guess" maxlength="1" autofocus placeholder="Enter a letter" />
+        <button id="submitGuess">Guess</button>
+    </div>
+    
     <p>Guessed Letters: <span id="guessedLetters"></span></p>
     <p>Remaining Attempts: <span id="attempts">6</span></p>
     <p id="message"></p>
     <button onclick="initGame()">Restart</button>
+
     <h4>🏆 Top 10 Scores</h4>
     <ol id="scoreBoard"></ol>
   </div>
@@ -45,6 +48,6 @@
   <audio id="winSound" src="sounds/win.mp3" preload="auto"></audio>
   <audio id="loseSound" src="sounds/lose.mp3" preload="auto"></audio>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js"></script>
 </body>
 </html>
