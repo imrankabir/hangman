@@ -5,9 +5,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-  width: 60%;
   padding: 20px;
-  margin: 20px auto;
   color: var(--text);
   background-color: var(--bg);
   transition: background-color 0.3s, color 0.3s;
